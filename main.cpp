@@ -1,5 +1,5 @@
 #include <ncurses.h>
-#include "paddle.h"
+#include "conroller.h"
 
 int main(void){
     int result;
