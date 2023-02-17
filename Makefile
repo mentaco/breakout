@@ -1,10 +1,8 @@
-# -c オプションでオブジェクトファイルを作ってから
-#  実行ファイルを作ると何故かエラーが出るため、
-#  コンパイルとリンクを同時にする。
-
 CC = g++
 LIBS = -lncurses
-FILES = main.cpp paddle.cpp controller.cpp
+OBJS = main.o paddle.o controller.o
 
-all: $(FILES)
-	$(CC) $(FILES) $(LIBS)
+all: $(OBJS)
+	$(CC) $(OBJS) $(LIBS)
+
+clean:; rm -f *.o a.out
