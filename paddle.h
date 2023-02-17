@@ -3,8 +3,8 @@
 
 class Paddle{
     private:
-        static int row;
-        static int column;
+        int row;
+        int column;
     public:
         Paddle();
         void movement();
