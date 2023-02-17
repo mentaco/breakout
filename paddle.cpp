@@ -5,6 +5,7 @@ Paddle::Paddle(){
     row = 12;
     column = 23;
 }
+
 void Paddle::movement(){
     int key = getch();
     if (key == 0xE0){
@@ -12,3 +13,8 @@ void Paddle::movement(){
         else if (key == 0x4D) row += 2;
     }
 }
+
+void Paddle::draw(){
+    mvprintw(row, column, "-----");
+ }
+

@@ -8,6 +8,7 @@ class Paddle{
     public:
         Paddle();
         void movement();
+        void draw();
 };
 
 #endif
