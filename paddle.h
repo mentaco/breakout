@@ -4,7 +4,7 @@
 class Paddle{
     private:
         static int row;
-        static const column;
+        static int column;
     public:
         Paddle();
         void movement();
