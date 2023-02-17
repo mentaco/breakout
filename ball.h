@@ -5,8 +5,8 @@ class Ball{
     private:
         int x;
         int y;
-        int ax;
-        int ay;
+        int vx;
+        int vy;
     public:
         Ball();
         void movement();
