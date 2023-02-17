@@ -1,10 +1,11 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
-#include"Paddle.h"
+#include"paddle.h"
 
 class Controller{
+    private:
+        Paddle paddle;
     public:
-        Controller();
         void update();
         void draw();
 };
