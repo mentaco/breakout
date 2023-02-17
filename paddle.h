@@ -7,7 +7,7 @@ class Paddle{
         int column;
     public:
         Paddle();
-        void movement();
+        void movement(int ch);
         void draw();
 };
 

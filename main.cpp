@@ -8,10 +8,7 @@ int main(void){
     Controller controller;
 
     while (1){
-        int ch = getch();
-        if (ch == 'q') break;
-
-        controller.update();
+        if (controller.update()) break;
         controller.draw();
     }
     endwin();
