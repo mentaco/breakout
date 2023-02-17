@@ -1,5 +1,5 @@
 #include <ncurses.h>
-#include "conroller.h"
+#include "controller.h"
 
 int main(void){
     initscr();

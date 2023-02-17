@@ -4,7 +4,7 @@
 
 CC = g++
 LIBS = -lncurses
-FILES = main.cpp paddle.cpp
+FILES = main.cpp paddle.cpp controller.cpp
 
 all: $(FILES)
 	$(CC) $(FILES) $(LIBS)
