@@ -1,9 +1,10 @@
 #include <ncurses.h>
 #include "paddle.h"
 
-Paddle::Paddle(){
-    row = 12;
-    column = 23;
+Paddle::Paddle()
+    : row(12), column(23)
+{
+    
 }
 
 void Paddle::movement(){
