@@ -2,7 +2,7 @@
 #include "ball.h"
 
 Ball::Ball()
-    : x(15), y(15)
+    : x(15), y(15), ax(2), ay(2)
 {
     
 }
