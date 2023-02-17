@@ -1,8 +1,14 @@
 #include <ncurses.h>
 #include "controller.h"
 
-void Controller::update(){
-    paddle.movement();
+int Controller::update(){
+    int ch = getch();
+    if (ch == 'q') {
+        return 1;
+    } else {
+        paddle.movement(ch);
+        return 0;
+    }
 }
 
 void Controller::draw(){

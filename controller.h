@@ -6,7 +6,7 @@ class Controller{
     private:
         Paddle paddle;
     public:
-        void update();
+        int update();
         void draw();
 };
 
