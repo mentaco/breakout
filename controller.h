@@ -8,7 +8,7 @@ class Controller{
         Paddle paddle;
         Ball ball;
     public:
-        int update();
+        int key_input();
         void draw();
 };
 

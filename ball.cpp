@@ -1,18 +1,22 @@
 #include <ncurses.h>
 #include "ball.h"
+#include "constants.h"
 
 Ball::Ball()
-    : x(15), y(15)
+    : x(COLUMN_SIZE), y(ROW_SIZE), vx(2), vy(2)
 {
     
 }
 
 void Ball::movement(){
-    x += ax;
-    y += ay;
+    if (x <= 0 || COLUMN_SIZE <= x) vx = -vx;
+    x += vx;
+    y += vy;
 }
 
 void Ball::draw(){
-    mvprintw(y, x, "@");
+    if (y <= ROW_SIZE){
+        mvprintw(y, x, "@");
+    }
 }
 
