@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include "controller.h"
 
-int Controller::update(){
+int Controller::key_input(){
     int ch = getch();
     if (ch == 'q') {
         return 1;

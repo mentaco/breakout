@@ -8,11 +8,14 @@ Ball::Ball()
 }
 
 void Ball::movement(){
+    if (x <= 0 || 28 <= x) vx = -vx;
     x += vx;
     y += vy;
 }
 
 void Ball::draw(){
-    mvprintw(y, x, "@");
+    if (y >= 27){
+        mvprintw(y, x, "@");
+    }
 }
 
