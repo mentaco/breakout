@@ -11,6 +11,9 @@ Paddle::Paddle()
 void Paddle::movement(int ch){
     if (ch == 'a') column -= v;
     else if (ch == 'd') column += v;
+
+    if (column < 0) column = 0;
+    else if (ROW_SIZE < column + 5) column = ROW_SIZE - 5;
 }
 
 void Paddle::draw(){
