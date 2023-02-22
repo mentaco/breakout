@@ -1,18 +1,18 @@
 #include <ncurses.h>
 #include "controller.h"
 
-int Controller::key_input(){
+int Controller::update() {
     int ch = getch();
     if (ch == 'q') {
-        return 1;
+        return 0;
     } else {
         paddle.movement(ch);
         ball.movement();
-        return 0;
+        return 1;
     }
 }
 
-void Controller::draw(){
+void Controller::draw() {
     clear();
     paddle.draw();
     ball.draw();

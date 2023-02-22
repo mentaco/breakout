@@ -8,7 +8,7 @@ OBJS = $(patsubst %.cpp, %.o, $(SRCS))
 $(PROGRAM): $(OBJS)
 	$(CXX) -o $@ $^ $(LIBS)
 
-%.o: %.cpp
+%.o: %.cpp constants.h
 	$(CXX) $(INCDIR) -c $<
 
 all: clean $(PROGRAM) 
