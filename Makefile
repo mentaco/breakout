@@ -1,8 +1,16 @@
-CC = g++
+CXX = g++-12
+PROGRAM = breakout
+INCDIR = -I./
 LIBS = -lncurses
-OBJS = main.o paddle.o controller.o ball.o
+SRCS = $(wildcard *.cpp)
+OBJS = $(patsubst %.cpp, %.o, $(SRCS))
 
-all: $(OBJS)
-	$(CC) $(OBJS) $(LIBS)
+$(PROGRAM): $(OBJS)
+	$(CXX) -o $@ $^ $(LIBS)
 
-clean:; rm -f *.o a.out
+%.o: %.cpp
+	$(CXX) $(INCDIR) -c $<
+
+all: clean $(PROGRAM) 
+
+clean:; rm -f $(OBJS) $(PROGRAM)
