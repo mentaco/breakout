@@ -3,7 +3,7 @@
 #include "constants.h"
 
 Ball::Ball()
-    : x(COLUMN_SIZE), y(ROW_SIZE), vx(2), vy(2)
+    : x(COLUMN_SIZE / 3 * 2), y(ROW_SIZE / 2), vx(2), vy(2)
 {
     
 }
@@ -15,7 +15,7 @@ void Ball::movement(){
 }
 
 void Ball::draw(){
-    if (y <= ROW_SIZE){
+    if (y < ROW_SIZE){
         mvprintw(y, x, "@");
     }
 }
