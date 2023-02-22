@@ -8,7 +8,7 @@ int main(void){
     Controller controller;
 
     while (1){
-        if (controller.update()) break;
+        if (controller.key_input()) break;
         controller.draw();
     }
     endwin();
