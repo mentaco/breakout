@@ -1,14 +1,12 @@
 #include <ncurses.h>
 #include "controller.h"
 
-int main(void){
+int main(void) {
     initscr();
     noecho();
     curs_set(0);
     Controller controller;
-
-    while (1){
-        if (controller.key_input()) break;
+    while (controller.update()) {
         controller.draw();
     }
     endwin();

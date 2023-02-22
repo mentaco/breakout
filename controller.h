@@ -3,12 +3,12 @@
 #include "paddle.h"
 #include "ball.h"
 
-class Controller{
+class Controller {
     private:
         Paddle paddle;
         Ball ball;
     public:
-        int key_input();
+        int update();
         void draw();
 };
 
