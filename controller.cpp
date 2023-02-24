@@ -3,15 +3,17 @@
 #include "constants.h"
 #include "controller.h"
 
+int Controller::q_input(int* ch) {
+    *ch = getch();
+    if (*ch == 'q') return 1;
+    return 0;
+}
+
 int Controller::update() {
     int ch = getch();
-    if (ch == 'q') {
-        return 0;
-    } else {
-        paddle.movement(ch);
-        ball.movement();
-        return 1;
-    }
+    paddle.movement(ch);
+    ball.movement();
+    return 1;
 }
 
 void Controller::draw() {
@@ -19,7 +21,7 @@ void Controller::draw() {
         clear();
         paddle.draw();
         ball.draw();
-        std::this_thread::sleep_for(std::chrono::milliseconds(15));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
         refresh();
     }
 }
