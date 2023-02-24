@@ -1,4 +1,4 @@
-CXX = g++-12
+CXX = g++
 PROGRAM = breakout
 INCDIR = -I./
 LIBS = -lncurses
