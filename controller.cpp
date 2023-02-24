@@ -1,4 +1,6 @@
 #include <ncurses.h>
+#include <thread>
+#include "constants.h"
 #include "controller.h"
 
 int Controller::update() {
@@ -13,9 +15,12 @@ int Controller::update() {
 }
 
 void Controller::draw() {
-    clear();
-    paddle.draw();
-    ball.draw();
-    refresh();
+    while (loop) {
+        clear();
+        paddle.draw();
+        ball.draw();
+        std::this_thread::sleep_for(std::chrono::milliseconds(15));
+        refresh();
+    }
 }
 
