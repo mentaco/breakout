@@ -9,19 +9,24 @@ int Controller::q_input(int* ch) {
 }
 
 int Controller::update() {
-    int ch = getch();
+    // int ch = getch();
     // paddle.movement(ch);
     ball.movement();
     return 1;
 }
 
-void Controller::draw(int* loop) {
-    while (*loop) {
+void Controller::draw() {
         clear();
         paddle.draw();
         ball.draw();
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
         refresh();
+}
+
+void Controller::all_ctrl(int* loop) {
+    while (*loop) {
+        this->update();
+        this->draw();
     }
 }
 

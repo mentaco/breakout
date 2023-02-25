@@ -15,7 +15,7 @@ int main(void) {
     Controller controller;
     auto game_loop = std::thread(
                                 [&controller, &loop]
-                                {controller.draw(&loop);}
+                                {controller.all_ctrl(&loop);}
                                 );
     while (1) {
         if (controller.q_input(&ch)) break;
