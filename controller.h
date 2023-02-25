@@ -11,6 +11,7 @@ class Controller {
         int q_input(int* ch);
         int update();
         void draw();
+        void all_ctrl(int* loop);
 };
 
 #endif

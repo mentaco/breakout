@@ -3,10 +3,10 @@
 
 class Ball{
     private:
-        int x;
-        int y;
-        int vx;
-        int vy;
+        double x;
+        double y;
+        double vx;
+        double vy;
     public:
         Ball();
         void movement();
