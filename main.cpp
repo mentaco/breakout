@@ -1,12 +1,10 @@
 #include <ncurses.h>
 #include <thread>
-#include "constants.h"
 #include "controller.h"
-
-int loop = 1;
 
 int main(void) {
     int ch;
+    int loop = 1;
     MEVENT e;
 
     initscr();
@@ -15,7 +13,10 @@ int main(void) {
     keypad(stdscr, TRUE);
     mousemask(ALL_MOUSE_EVENTS, NULL);
     Controller controller;
-    auto game_loop = std::thread([&controller] {controller.draw();});
+    auto game_loop = std::thread(
+                                [&controller, &loop]
+                                {controller.draw(&loop);}
+                                );
     while (1) {
         if (controller.q_input(&ch)) break;
     }

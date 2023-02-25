@@ -10,7 +10,7 @@ class Controller {
     public:
         int q_input(int* ch);
         int update();
-        void draw();
+        void draw(int* loop);
 };
 
 #endif
