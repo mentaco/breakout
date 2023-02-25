@@ -8,7 +8,7 @@ class Paddle{
         int v;
     public:
         Paddle();
-        void movement(int ch);
+        void update(int ch);
         void draw();
 };
 

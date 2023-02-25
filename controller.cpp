@@ -10,7 +10,7 @@ int Controller::q_input(int* ch) {
 
 int Controller::update() {
     // int ch = getch();
-    // paddle.movement(ch);
+    // paddle.update(ch);
     ball.movement();
     return 1;
 }

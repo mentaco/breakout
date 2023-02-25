@@ -8,7 +8,7 @@ Paddle::Paddle()
     
 }
 
-void Paddle::movement(int ch){
+void Paddle::update(int ch){
     if (ch == 'a') column -= v;
     else if (ch == 'd') column += v;
 
