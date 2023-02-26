@@ -8,6 +8,14 @@ Paddle::Paddle()
     
 }
 
+int Paddle::getx() {
+    return column;
+}
+
+int Paddle::gety() {
+    return row;
+}
+
 void Paddle::move(int mx) {
     column = mx;
 

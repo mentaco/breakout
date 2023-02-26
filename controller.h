@@ -7,10 +7,23 @@ class Controller {
     private:
         Paddle paddle;
         Ball ball;
+        int paddlex, paddley;
+        int blockx, blocky;
+        int ballx, bally;
+        double ballvx, ballvy;
     public:
-//        int q_input(int* ch);
         int update();
         void draw();
+        bool pb_coll_check(
+                int paddlex, int paddley,
+                int ballx, int bally,
+                double ballvx, double ballvy
+            );
+        bool bb_coll_check(
+                int blockx, int blocky,
+                int ballx, int bally,
+                double ballvx, double ballvy
+            );
         void all_ctrl(int* loop);
         void p_move(MEVENT e);
 };
