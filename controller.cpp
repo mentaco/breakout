@@ -8,8 +8,6 @@
 //}
 
 int Controller::update() {
-    // int ch = getch();
-    // paddle.update(ch);
     ball.movement();
     return 1;
 }
