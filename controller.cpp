@@ -2,10 +2,10 @@
 #include <thread>
 #include "controller.h"
 
-int Controller::q_input(int* ch) {
-    if (*ch == 'q') return 1;
-    return 0;
-}
+//int Controller::q_input(int* ch) {
+//    if (*ch == 'q') return 1;
+//    return 0;
+//}
 
 int Controller::update() {
     // int ch = getch();

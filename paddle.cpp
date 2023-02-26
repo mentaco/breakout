@@ -8,9 +8,8 @@ Paddle::Paddle()
     
 }
 
-void Paddle::update(int ch) {
-    if (ch == 'a') column -= v;
-    else if (ch == 'd') column += v;
+void Paddle::move(int mx) {
+    column = mx;
 
     if (column < 0) column = 0;
     else if (COLUMN_SIZE < column + 5) column = COLUMN_SIZE - 5;
@@ -18,9 +17,5 @@ void Paddle::update(int ch) {
 
 void Paddle::draw() {
     mvprintw(row, column, "-----");
-}
-
-void Paddle::move(int mx) {
-    this->column = mx;
 }
 

@@ -19,7 +19,12 @@ int main(void) {
                                 );
     while (1) {
         ch = getch();
-        if (controller.q_input(&ch)) break;
+        if (ch == 'q') {
+            break;
+        } else if (ch == KEY_MOUSE && getmouse(&e) == OK) {
+            controller.p_move(e);
+        } 
+        //if (controller.q_input(&ch)) break;
     }
     loop = 0;
     game_loop.join();
