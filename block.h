@@ -1,14 +1,15 @@
 #ifndef BLOCK_H
 #define BLOCK_H
+#include "constants.h"
 
 class Block {
     private:
-        int x;
-        int y;
+        bool blocks[BLOCK_ROW][BLOCK_COLUMN];
+        int row;
+        int column;
     public:
         Block();
-        int getx();
-        int gety();
+        void draw();
 };
 
 #endif

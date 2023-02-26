@@ -1,16 +1,23 @@
+#include <ncurses.h>
 #include "block.h"
 
-Block::Block() 
-    : x(0), y(0)
-{
-    
+Block::Block() {
+    int i, j;
+    for (i = 0; i < BLOCK_ROW; i++) {
+        for (j = 0; j < BLOCK_COLUMN; j++) {
+            blocks[i][j] = true;
+        }
+    }
 }
 
-int Block::getx() {
-    return x;
-}
-
-int Block::gety() {
-    return y;
+void Block::draw() {
+    int i, j;
+    for (i = 0; i < BLOCK_ROW; i++) {
+        for (j = 0; j < BLOCK_COLUMN; j++) {
+            if (blocks[i][j]) {
+                mvprintw(i + 1, j + 1, "#");
+            }
+        }
+    }
 }
 

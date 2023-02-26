@@ -20,10 +20,10 @@ class Controller {
                 int paddlex, int paddley,
                 int ballx, int bally
             );
-        bool bb_coll_check(
-                int blockx, int blocky,
-                int ballx, int bally
-            );
+//        bool bb_coll_check(
+//                int blockx, int blocky,
+//                int ballx, int bally
+//            );
         void all_ctrl(int* loop);
         void p_move(MEVENT e);
 };
