@@ -12,6 +12,7 @@ class Controller {
         int update();
         void draw();
         void all_ctrl(int* loop);
+        void p_move(MEVENT e);
 };
 
 #endif

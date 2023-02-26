@@ -1,7 +1,7 @@
 #ifndef PADDLE_H
 #define PADDLE_H
 
-class Paddle{
+class Paddle {
     private:
         int row;
         int column;
@@ -10,6 +10,7 @@ class Paddle{
         Paddle();
         void update(int ch);
         void draw();
+        void move(int mx);
 };
 
 #endif

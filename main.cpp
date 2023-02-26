@@ -18,6 +18,7 @@ int main(void) {
                                 {controller.all_ctrl(&loop);}
                                 );
     while (1) {
+        ch = getch();
         if (controller.q_input(&ch)) break;
     }
     loop = 0;
