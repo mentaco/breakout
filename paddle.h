@@ -8,6 +8,8 @@ class Paddle {
         int v;
     public:
         Paddle();
+        int getx();
+        int gety();
         void move(int mx);
         void draw();
 };

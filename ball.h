@@ -9,7 +9,11 @@ class Ball{
         double vy;
     public:
         Ball();
-        void movement();
+        int getx();
+        int gety();
+        double getvx();
+        double getvy();
+        void movement(bool coll = false);
         void draw();
 };
 #endif

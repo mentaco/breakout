@@ -8,8 +8,17 @@ Ball::Ball()
     
 }
 
-void Ball::movement(){
+int Ball::getx() {
+    return x;
+}
+
+int Ball::gety() {
+    return y;
+}
+
+void Ball::movement(bool coll){
     if (x <= 0 || COLUMN_SIZE <= x) vx = -vx;
+    if (coll) vy = -vy;
     x += vx;
     y += vy;
 }

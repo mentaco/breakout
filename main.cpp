@@ -24,7 +24,6 @@ int main(void) {
         } else if (ch == KEY_MOUSE && getmouse(&e) == OK) {
             controller.p_move(e);
         } 
-        //if (controller.q_input(&ch)) break;
     }
     loop = 0;
     game_loop.join();
