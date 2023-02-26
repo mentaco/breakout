@@ -2,15 +2,14 @@
 #include <thread>
 #include "controller.h"
 
-int Controller::q_input(int* ch) {
-    *ch = getch();
-    if (*ch == 'q') return 1;
-    return 0;
-}
+//int Controller::q_input(int* ch) {
+//    if (*ch == 'q') return 1;
+//    return 0;
+//}
 
 int Controller::update() {
     // int ch = getch();
-    // paddle.movement(ch);
+    // paddle.update(ch);
     ball.movement();
     return 1;
 }
@@ -28,5 +27,9 @@ void Controller::all_ctrl(int* loop) {
         this->update();
         this->draw();
     }
+}
+
+void Controller::p_move(MEVENT e) {
+    paddle.move(e.x);
 }
 

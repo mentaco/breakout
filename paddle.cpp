@@ -8,15 +8,14 @@ Paddle::Paddle()
     
 }
 
-void Paddle::movement(int ch){
-    if (ch == 'a') column -= v;
-    else if (ch == 'd') column += v;
+void Paddle::move(int mx) {
+    column = mx;
 
     if (column < 0) column = 0;
     else if (COLUMN_SIZE < column + 5) column = COLUMN_SIZE - 5;
 }
 
-void Paddle::draw(){
+void Paddle::draw() {
     mvprintw(row, column, "-----");
 }
 

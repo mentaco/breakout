@@ -18,7 +18,13 @@ int main(void) {
                                 {controller.all_ctrl(&loop);}
                                 );
     while (1) {
-        if (controller.q_input(&ch)) break;
+        ch = getch();
+        if (ch == 'q') {
+            break;
+        } else if (ch == KEY_MOUSE && getmouse(&e) == OK) {
+            controller.p_move(e);
+        } 
+        //if (controller.q_input(&ch)) break;
     }
     loop = 0;
     game_loop.join();
