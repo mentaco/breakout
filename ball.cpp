@@ -3,7 +3,7 @@
 #include "constants.h"
 
 Ball::Ball()
-    : x(COLUMN_SIZE / 3 * 2), y(ROW_SIZE / 2), vx(0.02), vy(0.02)
+    : x(10), y(10), vx(0.02), vy(0.02)
 {
     
 }
@@ -16,8 +16,16 @@ int Ball::gety() {
     return y;
 }
 
+double Ball::getvx() {
+    return vx;
+}
+
+double Ball::getvy() {
+    return vy;
+}
+
 void Ball::movement(bool coll){
-    if (x <= 0 || COLUMN_SIZE <= x) vx = -vx;
+    if (x < 0 || COLUMN_SIZE <  x) vx = -vx;
     if (coll) vy = -vy;
     x += vx;
     y += vy;
