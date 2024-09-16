@@ -2,7 +2,9 @@
 #define GAME_H
 
 #include "ball.h"
+#include "block.h"
 #include "paddle.h"
+#include <vector>
 
 class Game {
 public:
@@ -20,6 +22,9 @@ private:
 
   Ball ball;
   Paddle paddle;
+  std::vector<Block> blocks;
+
+  void init_blocks();
 };
 
 #endif

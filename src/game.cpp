@@ -13,6 +13,7 @@ Game::Game()
   nodelay(stdscr, TRUE);
 
   is_running = true;
+  init_blocks();
 }
 
 Game::~Game() { endwin(); }
@@ -57,6 +58,26 @@ void Game::update() {
     ball.reverse_y();
   }
 
+  // Blocks collision
+  for (auto &block : blocks) {
+    if (!block.is_destroyed() && block.is_hit(ball.get_x(), ball.get_y())) {
+      block.destroy();
+      ball.reverse_y();
+      break;
+    }
+  }
+
+  // Game clear
+  bool all_blocks_destroyed = true;
+  for (const auto &block : blocks) {
+    if (!block.is_destroyed()) {
+      all_blocks_destroyed = false;
+      break;
+    }
+  }
+  if (all_blocks_destroyed)
+    is_running = false;
+
   // Game over
   if (ball.get_y() >= height)
     is_running = false;
@@ -75,6 +96,13 @@ void Game::draw() {
     mvprintw(i, width, "#");
   }
 
+  // Draw blocks
+  for (const auto &block : blocks) {
+    if (!block.is_destroyed()) {
+      mvprintw(block.get_y(), block.get_x(), "?");
+    }
+  }
+
   // Draw ball
   mvprintw(ball.get_y(), ball.get_x(), "O");
 
@@ -84,4 +112,12 @@ void Game::draw() {
   }
 
   refresh();
+}
+
+void Game::init_blocks() {
+  for (int y = 2; y < 3; y++) {
+    for (int x = 4; x < width - 2; x += 5) {
+      blocks.emplace_back(x, y);
+    }
+  }
 }
