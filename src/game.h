@@ -4,6 +4,7 @@
 #include "ball.h"
 #include "block.h"
 #include "paddle.h"
+#include <atomic>
 #include <vector>
 
 class Game {
@@ -18,13 +19,14 @@ private:
   void input();
 
   int width, height;
-  bool is_running, game_clear;
+  std::atomic<bool> is_running, clear_flag;
 
   Ball ball;
   Paddle paddle;
   std::vector<Block> blocks;
 
   void init_blocks();
+  void show_message(bool clear_flag);
 };
 
 #endif

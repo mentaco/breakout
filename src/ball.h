@@ -3,7 +3,7 @@
 
 class Ball {
 public:
-  Ball(float x, float y);
+  Ball(int x, int y);
   void move();
   void reverse_x();
   void reverse_y();
@@ -12,8 +12,8 @@ public:
   int get_y() const;
 
 private:
-  float x, y;
-  float dir_x, dir_y;
+  int x, y;
+  int dir_x, dir_y;
 };
 
 #endif
