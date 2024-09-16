@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "ball.h"
 #include "paddle.h"
-#include <ncurses.h>
 
 class Game {
 public:
@@ -18,6 +18,7 @@ private:
   int width, height;
   bool is_running;
 
+  Ball ball;
   Paddle paddle;
 };
 

@@ -2,12 +2,15 @@
 #include <ncurses.h>
 #include <unistd.h>
 
-Game::Game() : width(40), height(20), paddle((width - 6) / 2, height - 2, 6) {
+Game::Game()
+    : width(40), height(20),
+      ball(static_cast<float>(width) / 2, static_cast<float>(height) / 3),
+      paddle((width - 6) / 2, height - 2, 6) {
   initscr();
   noecho();
   curs_set(FALSE);
   keypad(stdscr, TRUE);
-  timeout(100);
+  nodelay(stdscr, TRUE);
 
   is_running = true;
 }
@@ -39,14 +42,31 @@ void Game::input() {
 }
 
 void Game::update() {
-  // Unimplemented
+  ball.move();
+
+  // Border reflection
+  if (ball.get_x() < 2 || ball.get_x() > width - 2)
+    ball.reverse_x();
+  if (ball.get_y() < 2)
+    ball.reverse_y();
+
+  // Paddle reflection
+  if ((paddle.get_x() <= ball.get_x()) &&
+      (ball.get_x() < paddle.get_x() + paddle.get_width()) &&
+      (ball.get_y() == paddle.get_y())) {
+    ball.reverse_y();
+  }
+
+  // Game over
+  if (ball.get_y() >= height)
+    is_running = false;
 }
 
 void Game::draw() {
   clear();
 
   // Draw border
-  for (int i = 0; i < width; i++) {
+  for (int i = 0; i < width + 1; i++) {
     mvprintw(0, i, "#");
     mvprintw(height, i, "#");
   }
@@ -54,6 +74,9 @@ void Game::draw() {
     mvprintw(i, 0, "#");
     mvprintw(i, width, "#");
   }
+
+  // Draw ball
+  mvprintw(ball.get_y(), ball.get_x(), "O");
 
   // Draw paddle
   for (int i = 0; i < paddle.get_width(); i++) {
