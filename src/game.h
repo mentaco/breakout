@@ -18,7 +18,7 @@ private:
   void input();
 
   int width, height;
-  bool is_running;
+  bool is_running, game_clear;
 
   Ball ball;
   Paddle paddle;

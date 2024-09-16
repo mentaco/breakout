@@ -13,6 +13,7 @@ Game::Game()
   nodelay(stdscr, TRUE);
 
   is_running = true;
+  game_clear = false;
   init_blocks();
 }
 
@@ -25,6 +26,15 @@ void Game::run() {
     draw();
     usleep(50000);
   }
+
+  clear();
+  if (game_clear) {
+    mvprintw(height / 2, width / 2 - 7, "CLEAR!");
+  } else {
+    mvprintw(height / 2, width / 2 - 7, "GAME OVER!");
+  }
+  refresh();
+  usleep(600000);
 }
 
 void Game::input() {
@@ -75,8 +85,10 @@ void Game::update() {
       break;
     }
   }
-  if (all_blocks_destroyed)
+  if (all_blocks_destroyed) {
     is_running = false;
+    game_clear = true;
+  }
 
   // Game over
   if (ball.get_y() >= height)
